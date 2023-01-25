@@ -1,9 +1,11 @@
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +24,7 @@ function Header() {
   }, []);
 
   return (
-    <header className={`${isScrolled} && 'bg-[#141414]'`}>
+    <header className={`${isScrolled && "bg-[#141414]"} `}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
           src="https://rb.gy/ulxxee"
